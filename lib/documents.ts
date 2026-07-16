@@ -1,0 +1,4 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import { documents, type DocumentSlug } from "@/content/documents";
+export async function getDocument(slug:DocumentSlug){const index=documents.findIndex((d)=>d.slug===slug);if(index<0)return null;const meta=documents[index];const content=await fs.readFile(path.join(process.cwd(),"content",meta.file),"utf8");const words=content.trim().split(/\s+/).length;const headings=content.split("\n").filter((line)=>/^##\s+/.test(line)).map((line)=>{const text=line.replace(/^##\s+/,"").replace(/[*_`]/g,"");return{text,id:text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s-]/g,"").trim().replace(/\s+/g,"-")}});return{meta,content,readingTime:Math.max(1,Math.ceil(words/220)),headings,previous:index>0?documents[index-1]:null,next:index<documents.length-1?documents[index+1]:null};}

@@ -1,0 +1,3 @@
+import { cn } from "@/lib/utils";
+const states={"🟢":{label:"Disponible",className:"bg-emerald-50 text-emerald-800 ring-emerald-700/15"},"🟡":{label:"Parcial",className:"bg-amber-50 text-amber-800 ring-amber-700/15"},"🔴":{label:"Pendiente",className:"bg-red-50 text-red-800 ring-red-700/15"},"⚪":{label:"Pendiente",className:"bg-slate-50 text-slate-600 ring-slate-700/10"}} as const;
+export function StatusBadge({symbol,text}:{symbol:keyof typeof states;text?:string}){const state=states[symbol];return <span className={cn("inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-inset",state.className)}>{text||state.label}</span>}

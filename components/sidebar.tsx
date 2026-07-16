@@ -1,0 +1,6 @@
+import Link from "next/link";
+import { LayoutDashboard, Paperclip, FileText } from "lucide-react";
+import { documents } from "@/content/documents";
+import { cn } from "@/lib/utils";
+export function SidebarContent({mobile=false}:{mobile?:boolean}){return <div className={cn("flex h-full flex-col",mobile&&"pt-2")}><Link href="/" className="mb-12 flex items-center gap-3 px-2"><span className="grid size-9 place-items-center rounded-xl bg-[#0b5d42] text-sm font-semibold text-white">P</span><span className="font-semibold tracking-[-.02em]">Project Hub</span></Link><nav className="space-y-8"><div><Link href="/" className="nav-item"><LayoutDashboard/>Dashboard</Link></div><div><p className="nav-label"><FileText/>Documentos</p><div className="mt-2 space-y-1 border-l border-[#e7ebe8] pl-4">{documents.map((doc)=><Link key={doc.slug} href={`/documentos/${doc.slug}`} className="nav-subitem">{doc.title}</Link>)}</div></div><a className="nav-item" href="/Matriz_Ejecutiva_Requerimientos.xlsx" download><Paperclip/>Anexo Técnico</a></nav><p className="mt-auto px-3 text-[11px] leading-5 text-[#8a938e]">PROINED<br/>Guayllabamba · V1</p></div>}
+export function Sidebar(){return <aside className="fixed inset-y-0 left-0 z-30 hidden w-[264px] border-r border-[#e7ebe8] bg-white px-5 py-7 lg:block"><SidebarContent/></aside>}

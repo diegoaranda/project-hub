@@ -1,0 +1,139 @@
+.hero-actions > a:first-child { color: #fff; }
+
+.dashboard-answers { display: block; min-height: 0; padding: 8px 0 34px 34px; }
+.dashboard-answers-heading { margin-bottom: 14px; }
+.dashboard-answers-heading span,
+.quick-summary-heading span { display: block; margin-bottom: 4px; color: #748079; font-size: 10px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; }
+.dashboard-answers-heading h2,
+.quick-summary-heading h2 { margin: 0; font-size: 20px; letter-spacing: -.025em; }
+.dashboard-answers-heading p,
+.quick-summary-heading p { margin: 4px 0 0; color: #68736d; font-size: 11px; line-height: 1.45; }
+.dashboard-answers dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--line); }
+.dashboard-answers dl > div { min-height: 70px; padding: 12px 14px 10px 0; border-bottom: 1px solid var(--line); }
+.dashboard-answers dl > div:nth-child(odd) { border-right: 1px solid var(--line); }
+.dashboard-answers dl > div:nth-child(even) { padding-left: 14px; }
+.dashboard-answers dl > div:last-child { grid-column: 1 / -1; border-right: 0; }
+.dashboard-answers dt,
+.thirty-second-summary dt { color: #68736d; font-size: 10px; font-weight: 650; letter-spacing: .04em; }
+.dashboard-answers dd { margin: 5px 0 0; font-size: 12px; font-weight: 650; line-height: 1.45; }
+.dashboard-answers .summary-priority dt,
+.thirty-second-summary .summary-priority dt { color: #0b5d42; font-weight: 750; }
+.dashboard-answers .summary-priority dd { color: #121915; font-size: 13px; font-weight: 750; }
+
+.thirty-second-summary { margin-top: 34px; padding: 28px 0 32px; border-bottom: 1px solid var(--line); }
+.quick-summary-heading { display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px; }
+.quick-summary-heading span { margin: 0; }
+.thirty-second-summary dl { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.thirty-second-summary dl > div { min-height: 126px; padding: 18px; border-right: 1px solid var(--line); background: #fff; }
+.thirty-second-summary dl > div:last-child { border-right: 0; }
+.thirty-second-summary dd { margin: 8px 0 0; color: #26312b; font-size: 13px; font-weight: 560; line-height: 1.55; }
+.thirty-second-summary .summary-priority { background: #f7faf8; }
+.thirty-second-summary .summary-priority dd { color: #121915; font-size: 14px; font-weight: 700; }
+
+.hero-explanation { max-width: 480px; margin: 8px 0 0; color: #68736d; font-size: 13px; line-height: 1.55; }
+.progress-ring strong { max-width: 112px; text-align: center; font-family: var(--font-geist), sans-serif; font-size: 22px; font-weight: 700; line-height: 1.05; letter-spacing: -.025em; }
+.progress-ring span { margin-top: 8px; }
+
+@media (max-width: 1050px) {
+  .thirty-second-summary dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .thirty-second-summary dl > div { min-height: 110px; border-bottom: 1px solid var(--line); }
+  .thirty-second-summary dl > div:nth-child(2n) { border-right: 0; }
+  .thirty-second-summary dl > div:last-child { grid-column: 1 / -1; border-bottom: 0; }
+}
+
+@media (max-width: 820px) {
+  .dashboard-answers { padding: 24px 0 30px; }
+}
+
+@media (max-width: 600px) {
+  .dashboard-answers dl,
+  .thirty-second-summary dl { grid-template-columns: 1fr; }
+  .dashboard-answers dl > div,
+  .dashboard-answers dl > div:nth-child(odd),
+  .dashboard-answers dl > div:nth-child(even),
+  .thirty-second-summary dl > div { grid-column: auto; min-height: 0; padding: 14px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .dashboard-answers dl > div:last-child,
+  .thirty-second-summary dl > div:last-child { grid-column: auto; border-bottom: 0; }
+  .thirty-second-summary dl { padding: 0 16px; }
+  .quick-summary-heading { display: block; }
+  .quick-summary-heading span { margin-bottom: 4px; }
+}
+
+@media print {
+  .thirty-second-summary { break-inside: avoid; }
+}
+
+.prose-project .markdown-list { margin: 20px 0 30px; }
+.prose-project ul.markdown-list { padding-left: 0; list-style: none; }
+.prose-project ul.markdown-list > li {
+  position: relative;
+  margin: 0;
+  min-height: 28px;
+  padding: 4px 0 4px 34px;
+  line-height: 1.7;
+}
+.prose-project ul.markdown-list > li + li { margin-top: 8px; }
+.prose-project ul.markdown-list > li::before {
+  content: "•";
+  position: absolute;
+  left: 7px;
+  top: 5px;
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  color: #617069;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+}
+.prose-project ul.markdown-list-activities > li::before {
+  content: "✓";
+  border-radius: 50%;
+  background: #e6f2eb;
+  color: #0b5d42;
+  font-size: 11px;
+}
+.prose-project ul.markdown-list-deliverables > li::before {
+  content: "▤";
+  color: #0b5d42;
+  font-size: 16px;
+  font-weight: 500;
+}
+.prose-project ul.markdown-list-dependencies > li::before {
+  content: "⌁";
+  color: #536b60;
+  font-size: 19px;
+  transform: rotate(-18deg);
+}
+.prose-project ul.markdown-list-risks > li::before {
+  content: "!";
+  border: 1px solid #d8a39f;
+  border-radius: 50%;
+  background: #fff7f6;
+  color: #a64d47;
+  font-size: 11px;
+}
+.prose-project ol.markdown-list-ordered { padding-left: 32px; }
+.prose-project ol.markdown-list-ordered > li {
+  margin: 0;
+  padding: 3px 0 3px 7px;
+  line-height: 1.7;
+}
+.prose-project ol.markdown-list-ordered > li + li { margin-top: 9px; }
+.prose-project .semantic-callout + .markdown-list,
+.prose-project blockquote .markdown-list { margin-top: -8px; }
+.prose-project td .markdown-list { margin: 4px 0; font-size: 12px; }
+.prose-project td ul.markdown-list > li { min-height: 22px; padding: 2px 0 2px 28px; line-height: 1.5; }
+.prose-project td ul.markdown-list > li::before { left: 3px; top: 3px; }
+
+@media (max-width: 700px) {
+  .prose-project ul.markdown-list > li { padding-left: 31px; line-height: 1.65; }
+  .prose-project ul.markdown-list > li + li,
+  .prose-project ol.markdown-list-ordered > li + li { margin-top: 10px; }
+}
+
+@media print {
+  .prose-project ul.markdown-list-activities > li::before,
+  .prose-project ul.markdown-list-risks > li::before { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
