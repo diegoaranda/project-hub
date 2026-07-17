@@ -87,31 +87,38 @@
   font-weight: 700;
   line-height: 1;
 }
-.prose-project ul.markdown-list-activities > li::before {
+.prose-project :is(ul, ol).markdown-list-activities > li::before,
+.prose-project :is(ul, ol).markdown-list-actions > li::before {
   content: "✓";
   border-radius: 50%;
   background: #e6f2eb;
   color: #0b5d42;
   font-size: 11px;
 }
-.prose-project ul.markdown-list-deliverables > li::before {
+.prose-project :is(ul, ol).markdown-list-deliverables > li::before,
+.prose-project :is(ul, ol).markdown-list-deliveries > li::before {
   content: "▤";
-  color: #0b5d42;
+  color: #48705f;
   font-size: 16px;
   font-weight: 500;
 }
-.prose-project ul.markdown-list-dependencies > li::before {
+.prose-project :is(ul, ol).markdown-list-dependencies > li::before {
   content: "⌁";
   color: #536b60;
   font-size: 19px;
   transform: rotate(-18deg);
 }
-.prose-project ul.markdown-list-risks > li::before {
+.prose-project :is(ul, ol).markdown-list-critical-assets > li::before {
+  content: "•";
+  color: #b8534d;
+  font-size: 20px;
+}
+.prose-project :is(ul, ol).markdown-list-risks > li::before {
   content: "!";
-  border: 1px solid #d8a39f;
+  border: 1px solid #d6a451;
   border-radius: 50%;
-  background: #fff7f6;
-  color: #a64d47;
+  background: #fffbf1;
+  color: #976619;
   font-size: 11px;
 }
 .prose-project ol.markdown-list-ordered { padding-left: 32px; }
@@ -121,6 +128,36 @@
   line-height: 1.7;
 }
 .prose-project ol.markdown-list-ordered > li + li { margin-top: 9px; }
+.prose-project ol.markdown-list-actions,
+.prose-project ol.markdown-list-deliveries,
+.prose-project ol.markdown-list-critical-assets,
+.prose-project ol.markdown-list-risks { padding-left: 0; list-style: none; }
+.prose-project ol.markdown-list-actions > li,
+.prose-project ol.markdown-list-deliveries > li,
+.prose-project ol.markdown-list-critical-assets > li,
+.prose-project ol.markdown-list-risks > li {
+  position: relative;
+  min-height: 30px;
+  padding: 4px 0 4px 38px;
+  line-height: 1.7;
+}
+.prose-project ol.markdown-list-actions > li::before,
+.prose-project ol.markdown-list-deliveries > li::before,
+.prose-project ol.markdown-list-critical-assets > li::before,
+.prose-project ol.markdown-list-risks > li::before {
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  font-weight: 700;
+  line-height: 1;
+}
+.prose-project ol.markdown-list-milestones { padding-left: 30px; }
+.prose-project ol.markdown-list-milestones > li { padding-left: 9px; }
+.prose-project ol.markdown-list-milestones > li::marker { color: #0b5d42; font-weight: 750; }
 .prose-project .semantic-callout + .markdown-list,
 .prose-project blockquote .markdown-list { margin-top: -8px; }
 .prose-project td .markdown-list { margin: 4px 0; font-size: 12px; }
@@ -129,11 +166,17 @@
 
 @media (max-width: 700px) {
   .prose-project ul.markdown-list > li { padding-left: 31px; line-height: 1.65; }
+  .prose-project ol.markdown-list-actions > li,
+  .prose-project ol.markdown-list-deliveries > li,
+  .prose-project ol.markdown-list-critical-assets > li,
+  .prose-project ol.markdown-list-risks > li { padding-left: 34px; line-height: 1.65; }
   .prose-project ul.markdown-list > li + li,
   .prose-project ol.markdown-list-ordered > li + li { margin-top: 10px; }
 }
 
 @media print {
-  .prose-project ul.markdown-list-activities > li::before,
-  .prose-project ul.markdown-list-risks > li::before { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .prose-project .markdown-list-activities > li::before,
+  .prose-project .markdown-list-actions > li::before,
+  .prose-project .markdown-list-critical-assets > li::before,
+  .prose-project .markdown-list-risks > li::before { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
 }
